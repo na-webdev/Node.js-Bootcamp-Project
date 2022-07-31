@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
+const factory = require('./handleFactory');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -59,13 +60,6 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createUser = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'This is a message',
-  });
-};
-
 exports.getUser = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -73,16 +67,12 @@ exports.getUser = (req, res) => {
   });
 };
 
-exports.updateUser = (req, res) => {
+exports.createUser = (req, res) => {
   res.status(200).json({
     status: 'success',
     message: 'This is a message',
   });
 };
-
-exports.deleteUser = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    message: 'This is a message',
-  });
-};
+// Do NOT update passwords with this!
+exports.updateUser = factory.updateOne(User);
+exports.deleteUser = factory.deleteOne(User);
