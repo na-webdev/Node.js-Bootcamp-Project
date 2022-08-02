@@ -300,8 +300,8 @@ body {
 
 .header {
   background-color: #444;
-  padding: 0 5rem;
-  height: 8rem;
+  padding: 1rem 5rem;
+  min-height: 8rem;
   position: relative;
   z-index: 100;
   display: -webkit-box;
@@ -604,10 +604,11 @@ body {
   display: grid;
   grid-column-gap: 6rem;
   grid-auto-flow: column;
-  overflow-x: scroll;
+  overflow-x: auto;
   -ms-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
 }
+
 .reviews__card {
   width: 30rem;
   padding: 4rem;
@@ -830,6 +831,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .footer__nav li {
   margin-left: 1.5rem;
