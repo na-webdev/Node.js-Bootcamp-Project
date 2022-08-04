@@ -1,7 +1,5 @@
 /* eslint-disable */
-console.log('hello from client side');
-const locations = JSON.parse(document.getElementById('map').dataset.locations);
-
+export const displayMap = (locations) => {
 var map = L.map('map', { zoomControl: false });
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -24,3 +22,6 @@ const bounds = L.latLngBounds(points).pad(0.5);
 map.fitBounds(bounds);
 
 map.scrollWheelZoom.disable();
+}
+
+
