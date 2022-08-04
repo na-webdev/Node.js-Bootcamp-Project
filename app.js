@@ -37,7 +37,11 @@ const styleSrcUrls = [
   'https://tile.openstreetmap.org',
   'https://fonts.googleapis.com/',
 ];
-const connectSrcUrls = ['https://unpkg.com', 'ws://localhost:*/', 'https://tile.openstreetmap.org'];
+const connectSrcUrls = [
+  'https://unpkg.com',
+  'ws://localhost:*/',
+  'https://tile.openstreetmap.org',
+];
 const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
 app.use(
@@ -72,6 +76,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
