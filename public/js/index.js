@@ -31,9 +31,12 @@ if (signOutBtn) signOutBtn.addEventListener('click', logout);
 if (userDataForm)
   userDataForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = userDataForm.name.value;
-    const email = userDataForm.email.value;
-    updateSettings({ name, email }, 'data');
+    const form = new FormData();
+    form.append('name', document.getElementById('name').value);
+    form.append('email', document.getElementById('email').value);
+    form.append('photo', document.getElementById('photo').files[0]);
+    console.log(form);
+    updateSettings(form, 'data');
   });
 
 if (userPasswordForm)
