@@ -12,7 +12,6 @@ const signOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
-console.log('🚀 ~ file: index.js ~ line 15 ~ bookBtn', bookBtn);
 
 // delegation
 if (map) {
@@ -38,7 +37,6 @@ if (userDataForm)
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
     updateSettings(form, 'data');
   });
 
